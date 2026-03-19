@@ -1,0 +1,114 @@
+{
+  "project_name": "Texport Overseas - Who We Are Redesign",
+  "design_philosophy": {
+    "theme": "The Ethical Titan",
+    "core_values": ["Trust", "Industrial Excellence", "Human-Centric", "Global Scale"],
+    "mood": "Professional, Transparent, Sophisticated, Warm"
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Oswald, sans-serif",
+      "body": "Inter, sans-serif",
+      "accent": "Playfair Display, serif"
+    },
+    "scale": {
+      "h1": "text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight uppercase",
+      "h2": "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase",
+      "h3": "text-2xl md:text-3xl font-semibold tracking-wide",
+      "body_large": "text-lg md:text-xl leading-relaxed text-muted-foreground",
+      "body": "text-base leading-relaxed text-muted-foreground",
+      "caption": "text-sm font-medium tracking-widest uppercase text-muted-foreground"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#0f172a",
+        "foreground": "#f8fafc"
+      },
+      "secondary": {
+        "DEFAULT": "#cbd5e1",
+        "foreground": "#0f172a"
+      },
+      "accent": {
+        "DEFAULT": "#ea580c",
+        "foreground": "#ffffff",
+        "description": "Terracotta/Burnt Orange for fashion/textile warmth"
+      },
+      "background": {
+        "DEFAULT": "#ffffff",
+        "alt": "#f8fafc",
+        "dark": "#020617"
+      },
+      "muted": {
+        "DEFAULT": "#f1f5f9",
+        "foreground": "#64748b"
+      }
+    }
+  },
+  "spacing_layout": {
+    "container": "container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl",
+    "section_padding": "py-20 md:py-32",
+    "grid_gap": "gap-8 md:gap-12",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300",
+      "outline": "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300"
+    },
+    "cards": {
+      "style": "bg-card border border-border/40 hover:border-accent/50 transition-colors duration-300 rounded-none p-8"
+    },
+    "images": {
+      "style": "grayscale hover:grayscale-0 transition-all duration-700 ease-out object-cover"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1741275269921-3c562cdb9176?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwzfHxnYXJtZW50JTIwbWFudWZhY3R1cmluZyUyMHNld2luZyUyMGZhY3RvcnklMjBoaWdoJTIwdGVjaHxlbnwwfHx8fDE3NzM5MjE1MTl8MA&ixlib=rb-4.1.0&q=85",
+      "manufacturing": "https://images.unsplash.com/photo-1772351721253-1008627c8c50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxnYXJtZW50JTIwbWFudWZhY3R1cmluZyUyMHNld2luZyUyMGZhY3RvcnklMjBoaWdoJTIwdGVjaHxlbnwwfHx8fDE3NzM5MjE1MTl8MA&ixlib=rb-4.1.0&q=85",
+      "design_studio": "https://images.unsplash.com/photo-1764737740462-2a310c7b2c39?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwZGVzaWduJTIwc3R1ZGlvJTIwc2tldGNoZXMlMjBmYWJyaWMlMjBzd2F0Y2hlc3xlbnwwfHx8fDE3NzM5MjE1MjB8MA&ixlib=rb-4.1.0&q=85",
+      "fabric_texture": "https://images.unsplash.com/photo-1753164597585-6d42636ea099?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwZGVzaWduJTIwc3R1ZGlvJTIwc2tldGNoZXMlMjBmYWJyaWMlMjBzd2F0Y2hlc3xlbnwwfHx8fDE3NzM5MjE1MjB8MA&ixlib=rb-4.1.0&q=85",
+      "workforce_women": "https://images.unsplash.com/photo-1742203105834-1113a50e6d5a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMGdhcm1lbnQlMjB3b3JrZXJzJTIwc21pbGluZyUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NzM5MjE1MjF8MA&ixlib=rb-4.1.0&q=85",
+      "team_meeting": "https://images.unsplash.com/photo-1758691736975-9f7f643d178e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBidXNpbmVzcyUyMG1lZXRpbmclMjBkaXZlcnNlJTIwdGVhbSUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NzM5MjE1MjJ8MA&ixlib=rb-4.1.0&q=85",
+      "women_empowerment": "https://images.unsplash.com/photo-1742203100607-535a15b7f6c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjB3b21lbiUyMGdhcm1lbnQlMjB3b3JrZXJzJTIwc21pbGluZyUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NzM5MjE1MjF8MA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "content_strategy": {
+    "hero": {
+      "headline": "CRAFTING EXCELLENCE IN EVERY STITCH",
+      "subheadline": "Three decades of vision, commitment, and global recognition. We are Texport Overseas.",
+      "cta": "Explore Our Journey"
+    },
+    "metrics": [
+      { "label": "Annual Turnover", "value": "$110M+" },
+      { "label": "Annual Capacity", "value": "18M Units" },
+      { "label": "Manufacturing Units", "value": "08" },
+      { "label": "Established", "value": "1995" }
+    ],
+    "strengths": [
+      { "title": "Creativity & Design", "desc": "Innovation at the core of every pattern." },
+      { "title": "Multi-Product Capability", "desc": "From woven to knits, we cover it all." },
+      { "title": "Technical Excellence", "desc": "State-of-the-art machinery and processes." },
+      { "title": "Global Compliance", "desc": "Meeting the highest international standards." }
+    ],
+    "divisions": {
+      "woven": "Sophisticated wear for men, women, and children powered by state-of-the-art technology.",
+      "knits": "Comfort meets style with our advanced knitting division."
+    },
+    "empowerment": {
+      "headline": "EMPOWERING OUR PEOPLE",
+      "subheadline": "We believe a motivated workforce is the heart of our success.",
+      "programs": ["HERhealth", "HERfinance", "HERrespect", "HERessential"]
+    }
+  },
+  "universal_guidelines": [
+    "Do not use gradients for text.",
+    "Ensure all text has sufficient contrast.",
+    "Use 'Oswald' for all headings to maintain the industrial fashion look.",
+    "Use 'Inter' for body text for maximum readability.",
+    "Add data-testid to all interactive elements.",
+    "Use plenty of negative space (padding-y-20+) between sections."
+  ]
+}
