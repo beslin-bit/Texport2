@@ -18,7 +18,22 @@ const Navigation = () => {
 
   const menuItems = [
     { name: 'Who we are', path: '/' },
-    { name: 'Our Capabilities', path: '/manufacturing' },
+    {
+      name: 'Our Capabilities',
+      path: '#',
+      hasDropdown: true,
+      sections: [
+        {
+          title: 'Capabilities',
+          items: [
+            { name: 'Design & Innovation', path: '/design-innovation' },
+            { name: 'Manufacturing', path: '/manufacturing' },
+            { name: 'Quality', path: '/quality' },
+            { name: 'Technology', path: '/technology' },
+          ]
+        }
+      ]
+    },
     {
       name: 'Products',
       path: '#',
