@@ -7,6 +7,8 @@ import WeCare from '@/pages/WeCare';
 import DesignInnovation from '@/pages/DesignInnovation';
 import Quality from '@/pages/Quality';
 import Technology from '@/pages/Technology';
+import Certifications from '@/pages/Certifications';
+import Contact from '@/pages/Contact';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/quality" element={<Quality />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/we-care" element={<WeCare />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </div>

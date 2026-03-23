@@ -22,17 +22,11 @@ const Navigation = () => {
       name: 'Our Capabilities',
       path: '/our-capabilities',
       hasDropdown: true,
-      sections: [
-        {
-          title: 'Overview & Detailed',
-          items: [
-            { name: 'Overview', path: '/our-capabilities' },
-            { name: 'Design & Innovation', path: '/design-innovation' },
-            { name: 'Manufacturing', path: '/manufacturing' },
-            { name: 'Quality', path: '/quality' },
-            { name: 'Technology', path: '/technology' },
-          ]
-        }
+      items: [
+        { name: 'Design & Innovation', path: '/design-innovation' },
+        { name: 'Manufacturing', path: '/manufacturing' },
+        { name: 'Quality', path: '/quality' },
+        { name: 'Technology', path: '/technology' },
       ]
     },
     {
@@ -89,43 +83,61 @@ const Navigation = () => {
               <div key={index} className="relative group">
                 {item.hasDropdown ? (
                   <div>
-                    <button
+                    <Link
+                      to={item.path}
                       className="flex items-center gap-1 font-inter text-sm font-medium text-slate-700 hover:text-[#ea580c] transition-colors duration-200 uppercase tracking-wide"
                       data-testid={`nav-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                       onMouseEnter={() => setIsProductsOpen(true)}
                     >
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
-                    </button>
-                    {/* Dropdown with Sections */}
+                    </Link>
+                    {/* Dropdown */}
                     <div
-                      className="absolute top-full left-0 mt-2 w-96 bg-white shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                      className={`absolute top-full left-0 mt-2 bg-white shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ${
+                        item.sections ? 'w-96' : 'w-56'
+                      }`}
                       onMouseLeave={() => setIsProductsOpen(false)}
                     >
-                      <div className="grid grid-cols-2">
-                        {item.sections?.map((section, sectionIndex) => (
-                          <div 
-                            key={sectionIndex} 
-                            className={`py-4 ${sectionIndex === 0 ? 'border-r border-slate-200' : ''}`}
-                          >
-                            <div className="px-4 pb-2 mb-2 border-b border-slate-100">
-                              <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
-                                {section.title}
-                              </span>
+                      {item.sections ? (
+                        <div className="grid grid-cols-2">
+                          {item.sections.map((section, sectionIndex) => (
+                            <div 
+                              key={sectionIndex} 
+                              className={`py-4 ${sectionIndex === 0 ? 'border-r border-slate-200' : ''}`}
+                            >
+                              <div className="px-4 pb-2 mb-2 border-b border-slate-100">
+                                <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
+                                  {section.title}
+                                </span>
+                              </div>
+                              {section.items.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  to={subItem.path}
+                                  className="block px-4 py-2 font-inter text-sm text-slate-700 hover:bg-slate-50 hover:text-[#ea580c] transition-colors"
+                                  data-testid={`nav-dropdown-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
                             </div>
-                            {section.items.map((subItem, subIndex) => (
-                              <Link
-                                key={subIndex}
-                                to={subItem.path}
-                                className="block px-4 py-2 font-inter text-sm text-slate-700 hover:bg-slate-50 hover:text-[#ea580c] transition-colors"
-                                data-testid={`nav-dropdown-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="py-2">
+                          {item.items?.map((subItem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              to={subItem.path}
+                              className="block px-4 py-2 font-inter text-sm text-slate-700 hover:bg-slate-50 hover:text-[#ea580c] transition-colors"
+                              data-testid={`nav-dropdown-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ) : (
@@ -173,25 +185,38 @@ const Navigation = () => {
                     </button>
                     {isProductsOpen && (
                       <div className="bg-slate-50 py-2">
-                        {item.sections?.map((section, sectionIndex) => (
-                          <div key={sectionIndex}>
-                            <div className="px-6 py-2 mt-2">
-                              <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
-                                {section.title}
-                              </span>
+                        {item.sections ? (
+                          item.sections.map((section, sectionIndex) => (
+                            <div key={sectionIndex}>
+                              <div className="px-6 py-2 mt-2">
+                                <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
+                                  {section.title}
+                                </span>
+                              </div>
+                              {section.items.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  to={subItem.path}
+                                  className="block px-8 py-2 font-inter text-sm text-slate-600 hover:text-[#ea580c] transition-colors"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
                             </div>
-                            {section.items.map((subItem, subIndex) => (
-                              <Link
-                                key={subIndex}
-                                to={subItem.path}
-                                className="block px-8 py-2 font-inter text-sm text-slate-600 hover:text-[#ea580c] transition-colors"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
+                          ))
+                        ) : (
+                          item.items?.map((subItem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              to={subItem.path}
+                              className="block px-6 py-2 font-inter text-sm text-slate-600 hover:text-[#ea580c] transition-colors"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))
+                        )}
                       </div>
                     )}
                   </div>
