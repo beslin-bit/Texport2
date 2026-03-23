@@ -1,8 +1,11 @@
 import React from 'react';
 import { Factory, Zap, Shield, Layers, Scissors, Palette, Hammer, Droplets, Package, QrCode, ArrowRight, Check } from 'lucide-react';
 import Navigation from '@/components/Navigation';
+import { Link, useLocation } from 'react-router-dom';
 
 const Manufacturing = () => {
+  const location = useLocation();
+
   const pillars = [
     {
       icon: <Factory className="w-12 h-12" />,
@@ -81,10 +84,10 @@ const Manufacturing = () => {
   ];
 
   const tabs = [
-    { name: 'Design & Innovation', active: false },
-    { name: 'Manufacturing', active: true },
-    { name: 'Quality', active: false },
-    { name: 'Technology', active: false },
+    { name: 'Design & Innovation', path: '/design-innovation' },
+    { name: 'Manufacturing', path: '/manufacturing' },
+    { name: 'Quality', path: '/quality' },
+    { name: 'Technology', path: '/technology' },
   ];
 
   return (
@@ -105,20 +108,21 @@ const Manufacturing = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a]/95 via-[#0f172a]/90 to-[#0f172a]/80"></div>
         
         <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
-          {/* Navigation Tabs */}
+          {/* Capability Navigation Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {tabs.map((tab, index) => (
-              <button
+              <Link
                 key={index}
+                to={tab.path}
                 className={`px-6 py-2 text-sm font-bold tracking-widest uppercase transition-all duration-300 ${
-                  tab.active
+                  location.pathname === tab.path
                     ? 'bg-[#ea580c] text-white'
                     : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
                 data-testid={`tab-${index}`}
               >
                 {tab.name}
-              </button>
+              </Link>
             ))}
           </div>
 
