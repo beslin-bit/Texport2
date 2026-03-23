@@ -158,12 +158,9 @@ const MensShorts = () => {
                     {product.category}
                   </div>
                 </div>
-                <h3 className="font-oswald text-xl font-semibold uppercase text-[#0f172a] mb-2">
+                <h3 className="font-oswald text-xl font-semibold uppercase text-[#0f172a]">
                   {product.name}
                 </h3>
-                <p className="font-inter text-sm text-slate-600">
-                  Premium Quality
-                </p>
               </div>
             ))}
           </div>
