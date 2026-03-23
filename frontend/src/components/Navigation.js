@@ -17,7 +17,7 @@ const Navigation = () => {
   }, []);
 
   const menuItems = [
-    { name: 'Who we are', path: '/' },
+    { name: 'Who we are', path: '/who-we-are' },
     {
       name: 'Our Capabilities',
       path: '/our-capabilities',
