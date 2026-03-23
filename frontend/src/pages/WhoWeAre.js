@@ -84,24 +84,6 @@ const WhoWeAre = () => {
         </div>
       </section>
 
-      {/* Metrics Bar */}
-      <section className="bg-[#0f172a] py-16 md:py-20" data-testid="metrics-section">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {metrics.map((metric, index) => (
-              <div key={index} className="text-center" data-testid={`metric-${index}`}>
-                <div className="font-oswald text-4xl md:text-5xl lg:text-6xl font-bold text-[#ea580c] mb-3">
-                  {metric.value}
-                </div>
-                <div className="font-inter text-sm md:text-base uppercase tracking-widest text-slate-400">
-                  {metric.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Story Section */}
       <section id="story" className="py-20 md:py-32" data-testid="story-section">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
@@ -113,22 +95,14 @@ const WhoWeAre = () => {
               <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase text-[#0f172a] mb-6 leading-tight">
                 Three Decades of Commitment
               </h2>
-              <div className="space-y-4 font-inter text-base leading-relaxed text-slate-600">
+              <div className="font-inter text-base leading-relaxed text-slate-600">
                 <p>
                   Established in <strong>1995</strong>, we are a privately owned apparel manufacturing and export 
                   company with an annual turnover of <strong>USD 110 million</strong>. Recognized as one of India's 
                   leading woven garment exporters, we operate eight fully integrated manufacturing units with a 
-                  combined annual capacity of <strong>18 million units</strong>.
-                </p>
-                <p>
-                  Our product range includes: Men's bottoms, shirts, and outerwear, Women's tops, skirts, 
-                  bottoms, and outerwear. We specialize in delivering high-quality, competitively priced 
-                  garments that meet international standards for compliance, consistency, and performance.
-                </p>
-                <p>
-                  With strong multi-product capabilities and a proven global track record, we support our 
-                  partners across the entire value chain — from product development and sourcing to production 
-                  planning, quality control, and on-time delivery.
+                  combined annual capacity of <strong>18 million units</strong>. We specialize in delivering high-quality, 
+                  competitively priced garments that meet international standards for compliance, consistency, and 
+                  performance, supporting our partners across the entire value chain.
                 </p>
               </div>
             </div>
@@ -174,70 +148,6 @@ const WhoWeAre = () => {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Divisions Section */}
-      <section className="py-20 md:py-32" data-testid="divisions-section">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <span className="inline-block text-[#ea580c] text-sm font-bold tracking-[0.3em] uppercase mb-4">
-              Our Expertise
-            </span>
-            <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase text-[#0f172a] mb-6">
-              Divisions
-            </h2>
-            <p className="font-playfair text-2xl md:text-3xl text-slate-700 italic max-w-3xl mx-auto">
-              Crafting comfort, style, and quality in each stitch.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* Woven Division */}
-            <div className="group" data-testid="division-woven">
-              <div className="relative h-80 overflow-hidden mb-6">
-                <img
-                  src="https://images.unsplash.com/photo-1764737740462-2a310c7b2c39?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwZGVzaWduJTIwc3R1ZGlvJTIwc2tldGNoZXMlMjBmYWJyaWMlMjBzd2F0Y2hlc3xlbnwwfHx8fDE3NzM5MjE1MjB8MA&ixlib=rb-4.1.0&q=85"
-                  alt="Woven Division"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                />
-              </div>
-              <h3 className="font-oswald text-2xl md:text-3xl font-semibold uppercase text-[#0f172a] mb-4 tracking-wide">
-                Woven
-              </h3>
-              <p className="font-inter text-base leading-relaxed text-slate-600 mb-4">
-                State-of-the-art technology powers our Wovens range of sophisticated wear for men, women and children.
-              </p>
-              <p className="font-inter text-sm leading-relaxed text-slate-600">
-                The woven division of Texport Overseas is equipped with state-of-the-art technology. By leveraging 
-                its technical superiority and the expertise of its professionals, this division has achieved remarkable 
-                in-house annual production capacity. A skilled workforce experienced in Computer Aided Design and 
-                manufacturing systems is carrying out its responsibilities with passion and dedication.
-              </p>
-            </div>
-
-            {/* Knits Division */}
-            <div className="group" data-testid="division-knits">
-              <div className="relative h-80 overflow-hidden mb-6">
-                <img
-                  src="https://images.unsplash.com/photo-1753164597585-6d42636ea099?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwZGVzaWduJTIwc3R1ZGlvJTIwc2tldGNoZXMlMjBmYWJyaWMlMjBzd2F0Y2hlc3xlbnwwfHx8fDE3NzM5MjE1MjB8MA&ixlib=rb-4.1.0&q=85"
-                  alt="Knits Division"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                />
-              </div>
-              <h3 className="font-oswald text-2xl md:text-3xl font-semibold uppercase text-[#0f172a] mb-4 tracking-wide">
-                Knits
-              </h3>
-              <p className="font-inter text-base leading-relaxed text-slate-600 mb-4">
-                Advanced knitting technology delivers comfortable, stylish wear with exceptional quality and finish.
-              </p>
-              <p className="font-inter text-sm leading-relaxed text-slate-600">
-                Our knits division combines cutting-edge machinery with skilled craftsmanship to produce a diverse 
-                range of knitted garments. From basic tees to complex structured knits, we maintain the highest 
-                standards of quality control and production efficiency, meeting global demand with precision and care.
-              </p>
-            </div>
           </div>
         </div>
       </section>
