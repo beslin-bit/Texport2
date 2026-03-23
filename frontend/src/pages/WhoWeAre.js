@@ -1,7 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Lightbulb, Shirt, Scissors, Award, Users, Heart, TrendingUp, CheckCircle } from 'lucide-react';
+import Navigation from '@/components/Navigation';
 
 const WhoWeAre = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      if (!isVisible) return;
+
+      let startTime;
+      const startValue = 0;
+      const endValue = typeof end === 'string' ? parseInt(end.replace(/\D/g, '')) : end;
+
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(easeOutQuart * endValue);
+        
+        setCount(currentCount);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    }, [isVisible, end, duration]);
+
+    return <span>{count}{suffix}</span>;
+  };
   const metrics = [
     { label: 'Annual Turnover', value: '$110M+' },
     { label: 'Annual Capacity', value: '18M Units' },
@@ -41,6 +95,9 @@ const WhoWeAre = () => {
 
   return (
     <div className="w-full">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -87,7 +144,8 @@ const WhoWeAre = () => {
       {/* Story Section */}
       <section id="story" className="py-20 md:py-32" data-testid="story-section">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
+            {/* Left: Story Text */}
             <div>
               <span className="inline-block text-[#ea580c] text-sm font-bold tracking-[0.3em] uppercase mb-4">
                 Our Story
@@ -95,7 +153,7 @@ const WhoWeAre = () => {
               <h2 className="font-oswald text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase text-[#0f172a] mb-6 leading-tight">
                 Three Decades of Commitment
               </h2>
-              <div className="font-inter text-base leading-relaxed text-slate-600">
+              <div className="font-inter text-base leading-relaxed text-slate-600 mb-8">
                 <p>
                   Established in <strong>1995</strong>, we are a privately owned apparel manufacturing and export 
                   company with an annual turnover of <strong>USD 110 million</strong>. Recognized as one of India's 
@@ -105,8 +163,49 @@ const WhoWeAre = () => {
                   performance, supporting our partners across the entire value chain.
                 </p>
               </div>
+
+              {/* Visual Stats */}
+              <div ref={statsRef} className="grid grid-cols-2 gap-6" data-testid="visual-stats">
+                <div className="border-l-4 border-[#ea580c] pl-4">
+                  <div className="font-oswald text-4xl md:text-5xl font-bold text-[#0f172a] mb-2">
+                    {isVisible ? <AnimatedCounter end={110} suffix="M+" /> : '$110M+'}
+                  </div>
+                  <div className="font-inter text-sm uppercase tracking-widest text-slate-500">
+                    Annual Turnover
+                  </div>
+                </div>
+
+                <div className="border-l-4 border-[#ea580c] pl-4">
+                  <div className="font-oswald text-4xl md:text-5xl font-bold text-[#0f172a] mb-2">
+                    {isVisible ? <AnimatedCounter end={18} suffix="M" /> : '18M'}
+                  </div>
+                  <div className="font-inter text-sm uppercase tracking-widest text-slate-500">
+                    Units Capacity
+                  </div>
+                </div>
+
+                <div className="border-l-4 border-[#ea580c] pl-4">
+                  <div className="font-oswald text-4xl md:text-5xl font-bold text-[#0f172a] mb-2">
+                    {isVisible ? <AnimatedCounter end={8} suffix="" /> : '08'}
+                  </div>
+                  <div className="font-inter text-sm uppercase tracking-widest text-slate-500">
+                    Manufacturing Units
+                  </div>
+                </div>
+
+                <div className="border-l-4 border-[#ea580c] pl-4">
+                  <div className="font-oswald text-4xl md:text-5xl font-bold text-[#0f172a] mb-2">
+                    {isVisible ? <AnimatedCounter end={1995} suffix="" /> : '1995'}
+                  </div>
+                  <div className="font-inter text-sm uppercase tracking-widest text-slate-500">
+                    Established
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="relative h-[500px] overflow-hidden">
+
+            {/* Right: Image */}
+            <div className="relative h-[600px] overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1772351721253-1008627c8c50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxnYXJtZW50JTIwbWFudWZhY3R1cmluZyUyMHNld2luZyUyMGZhY3RvcnklMjBoaWdoJTIwdGVjaHxlbnwwfHx8fDE3NzM5MjE1MTl8MA&ixlib=rb-4.1.0&q=85"
                 alt="Manufacturing Excellence"

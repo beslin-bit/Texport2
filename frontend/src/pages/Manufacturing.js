@@ -1,5 +1,6 @@
 import React from 'react';
 import { Factory, Zap, Shield, Layers, Scissors, Palette, Hammer, Droplets, Package, QrCode, ArrowRight, Check } from 'lucide-react';
+import Navigation from '@/components/Navigation';
 
 const Manufacturing = () => {
   const pillars = [
@@ -88,6 +89,9 @@ const Manufacturing = () => {
 
   return (
     <div className="w-full">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Hero Section */}
       <section
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
