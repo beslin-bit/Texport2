@@ -9,6 +9,7 @@ import Quality from '@/pages/Quality';
 import Technology from '@/pages/Technology';
 import Certifications from '@/pages/Certifications';
 import Contact from '@/pages/Contact';
+import MensShorts from '@/pages/MensShorts';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/we-care" element={<WeCare />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/products/mens-shorts" element={<MensShorts />} />
         </Routes>
       </BrowserRouter>
     </div>
