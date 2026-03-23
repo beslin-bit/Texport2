@@ -20,12 +20,13 @@ const Navigation = () => {
     { name: 'Who we are', path: '/' },
     {
       name: 'Our Capabilities',
-      path: '#',
+      path: '/our-capabilities',
       hasDropdown: true,
       sections: [
         {
-          title: 'Capabilities',
+          title: 'Overview & Detailed',
           items: [
+            { name: 'Overview', path: '/our-capabilities' },
             { name: 'Design & Innovation', path: '/design-innovation' },
             { name: 'Manufacturing', path: '/manufacturing' },
             { name: 'Quality', path: '/quality' },

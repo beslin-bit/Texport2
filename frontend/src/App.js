@@ -1,6 +1,7 @@
 import '@/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WhoWeAre from '@/pages/WhoWeAre';
+import OurCapabilities from '@/pages/OurCapabilities';
 import Manufacturing from '@/pages/Manufacturing';
 import WeCare from '@/pages/WeCare';
 import DesignInnovation from '@/pages/DesignInnovation';
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<WhoWeAre />} />
+          <Route path="/our-capabilities" element={<OurCapabilities />} />
           <Route path="/design-innovation" element={<DesignInnovation />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/quality" element={<Quality />} />
