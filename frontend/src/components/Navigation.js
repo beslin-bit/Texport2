@@ -23,18 +23,28 @@ const Navigation = () => {
       name: 'Products',
       path: '#',
       hasDropdown: true,
-      subItems: [
-        { name: 'Mens Outerwear', path: '/products/mens-outerwear' },
-        { name: 'Mens Shirt', path: '/products/mens-shirt' },
-        { name: 'Mens Shorts', path: '/products/mens-shorts' },
-        { name: 'Mens Trousers', path: '/products/mens-trousers' },
-        { name: 'Womens Outerwear', path: '/products/womens-outerwear' },
-        { name: 'Womens Shirts', path: '/products/womens-shirts' },
-        { name: 'Women Trousers', path: '/products/women-trousers' },
-        { name: 'Womens Skirt', path: '/products/womens-skirt' },
-        { name: 'Women Shorts', path: '/products/women-shorts' },
-        { name: 'Women Dress', path: '/products/women-dress' },
-      ],
+      sections: [
+        {
+          title: "Men's Collection",
+          items: [
+            { name: 'Outerwear', path: '/products/mens-outerwear' },
+            { name: 'Shirt', path: '/products/mens-shirt' },
+            { name: 'Shorts', path: '/products/mens-shorts' },
+            { name: 'Trousers', path: '/products/mens-trousers' },
+          ]
+        },
+        {
+          title: "Women's Collection",
+          items: [
+            { name: 'Outerwear', path: '/products/womens-outerwear' },
+            { name: 'Shirts', path: '/products/womens-shirts' },
+            { name: 'Trousers', path: '/products/women-trousers' },
+            { name: 'Skirt', path: '/products/womens-skirt' },
+            { name: 'Shorts', path: '/products/women-shorts' },
+            { name: 'Dress', path: '/products/women-dress' },
+          ]
+        }
+      ]
     },
     { name: 'We care', path: '/we-care' },
     { name: 'Certifications', path: '/certifications' },
@@ -71,21 +81,33 @@ const Navigation = () => {
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
                     </button>
-                    {/* Dropdown */}
+                    {/* Dropdown with Sections */}
                     <div
-                      className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                      className="absolute top-full left-0 mt-2 w-96 bg-white shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                       onMouseLeave={() => setIsProductsOpen(false)}
                     >
-                      <div className="py-2">
-                        {item.subItems.map((subItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            to={subItem.path}
-                            className="block px-4 py-2 font-inter text-sm text-slate-700 hover:bg-slate-50 hover:text-[#ea580c] transition-colors"
-                            data-testid={`nav-dropdown-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      <div className="grid grid-cols-2">
+                        {item.sections?.map((section, sectionIndex) => (
+                          <div 
+                            key={sectionIndex} 
+                            className={`py-4 ${sectionIndex === 0 ? 'border-r border-slate-200' : ''}`}
                           >
-                            {subItem.name}
-                          </Link>
+                            <div className="px-4 pb-2 mb-2 border-b border-slate-100">
+                              <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
+                                {section.title}
+                              </span>
+                            </div>
+                            {section.items.map((subItem, subIndex) => (
+                              <Link
+                                key={subIndex}
+                                to={subItem.path}
+                                className="block px-4 py-2 font-inter text-sm text-slate-700 hover:bg-slate-50 hover:text-[#ea580c] transition-colors"
+                                data-testid={`nav-dropdown-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -135,15 +157,24 @@ const Navigation = () => {
                     </button>
                     {isProductsOpen && (
                       <div className="bg-slate-50 py-2">
-                        {item.subItems.map((subItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            to={subItem.path}
-                            className="block px-8 py-2 font-inter text-sm text-slate-600 hover:text-[#ea580c] transition-colors"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
+                        {item.sections?.map((section, sectionIndex) => (
+                          <div key={sectionIndex}>
+                            <div className="px-6 py-2 mt-2">
+                              <span className="font-oswald text-xs font-bold tracking-widest uppercase text-[#ea580c]">
+                                {section.title}
+                              </span>
+                            </div>
+                            {section.items.map((subItem, subIndex) => (
+                              <Link
+                                key={subIndex}
+                                to={subItem.path}
+                                className="block px-8 py-2 font-inter text-sm text-slate-600 hover:text-[#ea580c] transition-colors"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     )}
