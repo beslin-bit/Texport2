@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WhoWeAre from '@/pages/WhoWeAre';
 import Manufacturing from '@/pages/Manufacturing';
 import WeCare from '@/pages/WeCare';
+import DesignInnovation from '@/pages/DesignInnovation';
+import Quality from '@/pages/Quality';
+import Technology from '@/pages/Technology';
 
 function App() {
   return (
@@ -10,7 +13,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<WhoWeAre />} />
+          <Route path="/design-innovation" element={<DesignInnovation />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
+          <Route path="/quality" element={<Quality />} />
+          <Route path="/technology" element={<Technology />} />
           <Route path="/we-care" element={<WeCare />} />
         </Routes>
       </BrowserRouter>
