@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Factory, Lightbulb, Shield, Zap } from 'lucide-react';
 import Navigation from '@/components/Navigation';
+import HeroSlider from '@/components/HeroSlider';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -87,44 +88,8 @@ const Home = () => {
     <div className="w-full">
       <Navigation />
 
-      {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1581092918484-8313e1f2524e?q=80&w=2070)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a]/95 via-[#0f172a]/85 to-[#0f172a]/75"></div>
-        
-        <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
-          <h1 className="font-oswald text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight uppercase text-white mb-8 leading-[1.1]">
-            Crafting Excellence<br />In Every Stitch
-          </h1>
-          
-          <p className="font-inter text-xl md:text-2xl max-w-3xl mx-auto text-slate-300 leading-relaxed mb-12">
-            Three decades of vision, commitment, and global recognition.<br />
-            We are Texport Overseas.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/our-capabilities"
-              className="inline-flex items-center gap-3 bg-[#ea580c] text-white hover:bg-[#c2410c] px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300"
-            >
-              Explore Our Capabilities
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 bg-white/10 text-white hover:bg-white/20 px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider />
 
       {/* Stats Section */}
       <section className="py-20 md:py-32 bg-white">
